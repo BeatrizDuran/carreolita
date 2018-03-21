@@ -40,6 +40,7 @@ namespace Carreolita
                         case 4:
                             acciones.FrenarCarreola();
                             break;
+
                         case 5:
                             acciones.QuitarFreno();
                             break;
