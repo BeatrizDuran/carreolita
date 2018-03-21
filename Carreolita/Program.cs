@@ -48,7 +48,7 @@ namespace Carreolita
                     }
             } while (valor != 7);
             }
-            //Mandar el mensaje de error 
+            //Mandar el mensaje de error ///
             catch (FormatException er)
             {
                 Console.WriteLine(er.ToString());
