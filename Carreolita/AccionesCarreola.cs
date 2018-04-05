@@ -8,71 +8,79 @@ namespace Carreolita
 {
     public class AccionesCarreola
     {
-        bool estadoCarreolaAbierta = true;
-        bool estadoCarreolaCerrada = true;
-        bool estadoPasear = true;
-        bool estadoFrenar = true;
-        bool estadoFreno = true;
+        bool estadoCarreola = false;
+        bool estadoPasear = false;
+        bool estadoFrenar = false;
         public void CarreolaAbierta()
         {
-            if (estadoCarreolaAbierta == true)
+            if (estadoCarreola == false)
             {
                 Console.WriteLine("Carreola abierta");
-                estadoCarreolaAbierta = false;
+                estadoCarreola = true;
             }
             else
             {
                 Console.WriteLine("La carreola esta abierta");
-                estadoCarreolaAbierta = true;
             }
         }
         public void CarreolaCerrada()
         {
-            if (estadoCarreolaCerrada == true)
+            if (estadoCarreola == true && estadoPasear == true)
+            {
+                Console.WriteLine("NO ES POSIBLE PASEAR AL BEBE, LA CARREOLA ESTA CERRADA.");
+            }
+            else if (estadoCarreola == true && estadoPasear == false)
             {
                 Console.WriteLine("Carreola cerrada");
-                estadoCarreolaCerrada = false;
+                estadoCarreola = false;
+            }else if (estadoCarreola == false)
+            {
+                Console.WriteLine("La carreola se encuentra cerrada");
             }
-            else if (estadoCarreolaCerrada == false)
-                Console.WriteLine("La carreola esta cerrada");
         }
         public void PasearBendicion()
         {
-            if (estadoCarreolaCerrada == false && estadoPasear == true)
+            if (estadoPasear == false && estadoCarreola == true)
             {
-                Console.WriteLine("La bendición no se puede pasear, la carreola esta cerrada");
-                estadoPasear = false;
+                Console.WriteLine("La bendición se está paseando...");
+                estadoPasear = true;
             }
-            else 
+            else if(estadoCarreola == false)
             {
-                Console.WriteLine("La bendicion se está paseando");
-                estadoPasear = false;
+                Console.WriteLine(" ------------PRECAUCIÓN");
+                Console.WriteLine(" NO SE PUEDE PASEAR LA BENDICIÓN, LA CARREOLA ESTÁ CERRADA");
+                estadoCarreola = false;
+            }else if (estadoPasear == true)
+            {
+                Console.WriteLine("La bendción se encuentra paseandose.");
             }
         }
         public void FrenarCarreola()
         {
-            if (estadoPasear == true && estadoFrenar == true)
+            if (estadoFrenar == false)
             {
-                Console.WriteLine("El freno está puesto, no se puede pasear la bendición");
-                estadoFrenar = false;
-            }
-            else
-            {
-                Console.WriteLine("La carreola no esta frenada");
+                Console.WriteLine("La carreola está frenada.");
                 estadoFrenar = true;
+            }
+            else if(estadoFrenar == true && estadoPasear == true)
+            {
+                Console.WriteLine("LA CARREOLA SE ENCUENTRA FRENADA.");
+                estadoFrenar = false;
+            }else if (estadoFrenar == true)
+            {
+                Console.WriteLine("LA CARREOLA YA ESTÁ FRENADA");
             }
         }
         public void QuitarFreno()
         {
-            if (estadoFreno == true)
+            if (estadoFrenar == true)
             {
-                Console.WriteLine("El freno esta aplicado");
-                estadoFreno = false;
+                Console.WriteLine("Se ha quitado el freno");
+                estadoFrenar = false;
             }
-            else
+            else if(estadoFrenar == false)
             {
-                Console.WriteLine("El freno se ha retirado");
-                estadoFreno = true;
+                Console.WriteLine("LA CARREOLA NO ESTÁ FRENADA");
             }
         }
     }

@@ -22,7 +22,7 @@ namespace Carreolita
                 Console.WriteLine("     4. Frenar carreola");
                 Console.WriteLine("     5. Quitar freno");
                 Console.WriteLine("     6. Salir");
-                Console.WriteLine("     Ingrese alguna opción:");
+                Console.Write("Ingrese una opción:");
                 do
             {
                     valor = int.Parse(Console.ReadLine());
@@ -40,7 +40,6 @@ namespace Carreolita
                         case 4:
                             acciones.FrenarCarreola();
                             break;
-
                         case 5:
                             acciones.QuitarFreno();
                             break;
@@ -59,6 +58,7 @@ namespace Carreolita
                 Console.WriteLine(error.ToString());
             }
             Console.ReadKey();
+            // 29 LOC
         }
     }
 }
