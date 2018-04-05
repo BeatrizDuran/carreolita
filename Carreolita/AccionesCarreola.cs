@@ -11,6 +11,7 @@ namespace Carreolita
         bool estadoCarreola = false;
         bool estadoPasear = false;
         bool estadoFrenar = false;
+        //metodo de  carreola abierta
         public void CarreolaAbierta()
         {
             if (estadoCarreola == false)
